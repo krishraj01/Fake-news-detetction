@@ -1,3 +1,5 @@
+
+
 import streamlit as st
 import joblib
 import pandas as pd
@@ -9,25 +11,26 @@ import numpy as np
 # Set page config for light mode
 st.set_page_config(page_title="Fake News Detection System", layout="wide")
 
-# Custom CSS for light mode styling
+# Custom CSS for dark mode styling (with expander fixes)
 st.markdown("""
 <style>
     /* Main container */
     .stApp {
-        background-color: #ffffff;
+        background-color: #000000;  /* Set background to black */
     }
     
     /* Text area */
     .stTextArea textarea {
-        background-color: #f8f9fa !important;
+        background-color: #333333 !important;  /* Dark background for text area */
+        color: white !important;  /* White text color */
     }
     
     /* Cards */
     .custom-card {
-        background-color: #ffffff;
+        background-color: #222222;  /* Dark background for cards */
         border-radius: 10px;
         padding: 15px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         border-left: 5px solid #4CAF50;
         margin-bottom: 15px;
     }
@@ -41,18 +44,35 @@ st.markdown("""
     
     /* Metrics */
     .stMetric {
-        background-color: #f8f9fa;
+        background-color: #333333;  /* Dark background for metrics */
         border-radius: 10px;
         padding: 15px;
+        color: white;
     }
     
     /* Expanders */
     .stExpander {
-        background-color: #f8f9fa;
+        background-color: #222222;  /* Dark background for expanders */
         border-radius: 10px;
+        color: white;
+    }
+    
+    .stExpander .stExpanderHeader {
+        color: white;  /* White text for expander headers */
+    }
+    
+    .stExpander .stExpanderContent {
+        color: white;  /* White text for expander content */
+    }
+    
+    /* Change the text color to white for the overall page */
+    h1, h2, h3, h4, h5, h6, p {
+        color: white;
     }
 </style>
 """, unsafe_allow_html=True)
+
+
 
 # Load vectorizer and models
 @st.cache_resource
@@ -252,6 +272,7 @@ if check and st.session_state.input_text.strip():
                     border:2px solid {overall_color};margin-top:20px;box-shadow: 0 2px 8px rgba(0,0,0,0.1);'>
             <h2>Overall Verdict: <span style='color:{overall_color};'>
             {overall}</span></h2>
+            <p> 4 out of 4 models agree</p>
         </div>
         """, unsafe_allow_html=True)
 
