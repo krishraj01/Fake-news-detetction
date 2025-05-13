@@ -252,7 +252,6 @@ if check and st.session_state.input_text.strip():
                     border:2px solid {overall_color};margin-top:20px;box-shadow: 0 2px 8px rgba(0,0,0,0.1);'>
             <h2>Overall Verdict: <span style='color:{overall_color};'>
             {overall}</span></h2>
-            <p> 4 out of 4 models agree</p>
         </div>
         """, unsafe_allow_html=True)
 
