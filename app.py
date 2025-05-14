@@ -75,8 +75,8 @@ models = model_data["models"]
 @st.cache_data
 def load_data():
     try:
-        fake_news = pd.read_csv("fake.csv")
-        true_news = pd.read_csv("true.csv")
+        fake_news = pd.read_csv("Fake.csv")
+        true_news = pd.read_csv("True.csv")
         
         fake_samples = [{"text": text, "emoji": "❌"} for text in fake_news.text.head(5).tolist()]
         true_samples = [{"text": text, "emoji": "✅"} for text in true_news.text.head(5).tolist()]
