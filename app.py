@@ -78,8 +78,8 @@ def load_data():
         fake_news = pd.read_csv("Fake.csv")
         true_news = pd.read_csv("True.csv")
         
-        fake_samples = [{"text": text, "emoji": "❌"} for text in fake_news.text.head(5).tolist()]
-        true_samples = [{"text": text, "emoji": "✅"} for text in true_news.text.head(5).tolist()]
+        fake_samples = [{"text": text, "emoji": "❌"} for text in fake_news.text.head(10).tolist()]
+        true_samples = [{"text": text, "emoji": "✅"} for text in true_news.text.head(10).tolist()]
         
         return fake_samples + true_samples
     except Exception as e:
